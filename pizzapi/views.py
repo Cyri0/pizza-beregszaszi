@@ -15,7 +15,6 @@ def api_map(request):
 
     return JsonResponse(enpoints)
 
-
 def get_toppings(request):
     toppings = Topping.objects.all()
     li = []
@@ -25,8 +24,6 @@ def get_toppings(request):
 
     return JsonResponse({"data": li})
 
-
-
 def get_pizzas(request):
     pizzas = Pizza.objects.all()
     li = []
@@ -35,3 +32,7 @@ def get_pizzas(request):
         li.append(pizza.serialize())
 
     return JsonResponse({"data": li})
+
+def get_spec_pizza(request, pk):
+    pizza = Pizza.objects.get(id = pk)
+    return JsonResponse(pizza.serialize())
