@@ -36,3 +36,7 @@ def get_pizzas(request):
 def get_spec_pizza(request, pk):
     pizza = Pizza.objects.get(id = pk)
     return JsonResponse(pizza.serialize())
+
+def get_spec_topping(request, pk):
+    topping = Topping.objects.get(id = pk)
+    return JsonResponse(topping.serialize)
